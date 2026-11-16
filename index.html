@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#08090d">
+  <meta name="description" content="CardGenerator Pro — archivio offline di carte di test Stripe. Solo test, mai per pagamenti reali.">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="CardGenerator">
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <title>CardGenerator Pro</title>
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <div class="brand-mark" aria-hidden="true">CG</div>
+      <div>
+        <p class="eyebrow">DEVELOPER TOOL · VERSIONE 1.1</p>
+        <h1>CardGenerator <span>Pro</span></h1>
+      </div>
+      <div class="offline-pill"><i></i> OFFLINE READY</div>
+    </header>
+
+    <section class="warning" role="note">
+      <strong>SOLO MODALITÀ TEST</strong>
+      <p>Questi sono esempi di test pubblici Stripe. Non sono carte utilizzabili per acquisti o pagamenti reali.</p>
+    </section>
+
+    <section class="intro">
+      <p class="eyebrow">STRIPE TEST FIXTURES</p>
+      <h2>Testa i tuoi<br><span>pagamenti.</span></h2>
+      <p class="muted">Scegli uno scenario e copia i dati di test per il tuo ambiente Stripe in modalità test.</p>
+    </section>
+
+    <section class="filters" aria-label="Filtri">
+      <label for="brandFilter">Circuito</label>
+      <select id="brandFilter">
+        <option value="all">Tutti i circuiti</option>
+        <option value="Visa">Visa</option>
+        <option value="Mastercard">Mastercard</option>
+        <option value="American Express">American Express</option>
+        <option value="Discover">Discover</option>
+      </select>
+      <label for="searchInput">Cerca scenario</label>
+      <input id="searchInput" type="search" placeholder="Es. pagamento riuscito" autocomplete="off">
+    </section>
+
+    <section>
+      <div class="section-heading">
+        <h3>Scenari disponibili</h3>
+        <span id="resultCount" class="count">0</span>
+      </div>
+      <div id="cardList" class="card-list" aria-live="polite"></div>
+    </section>
+
+    <section id="detailPanel" class="detail-panel" hidden>
+      <div class="detail-head">
+        <div>
+          <p class="eyebrow">DETTAGLIO FIXTURE</p>
+          <h3 id="detailBrand">—</h3>
+        </div>
+        <span class="test-tag">TEST ONLY</span>
+      </div>
+      <p id="detailScenario" class="scenario-title"></p>
+      <div class="number-box">
+        <span id="detailNumber" class="card-number">—</span>
+        <button id="copyNumber" class="copy-icon" aria-label="Copia numero di test" title="Copia numero">⧉</button>
+      </div>
+      <p id="detailDescription" class="muted detail-description"></p>
+      <div class="meta-grid">
+        <div><span>CVC</span><strong id="detailCvc">—</strong></div>
+        <div><span>Scadenza</span><strong id="detailExpiry">—</strong></div>
+      </div>
+      <div class="actions">
+        <button id="copyAll" class="button primary">Copia dettagli</button>
+        <button id="shareFixture" class="button secondary">Condividi</button>
+      </div>
+    </section>
+
+    <section class="bottom-actions">
+      <button id="exportCsv" class="button secondary">Esporta CSV</button>
+      <button id="installHelp" class="button secondary">Installa su iPhone</button>
+    </section>
+
+    <footer>
+      <p>CardGenerator Pro · PWA 1.1.0</p>
+      <p>Nessuna connessione a Stripe · Nessun dato personale salvato</p>
+      <a href="https://docs.stripe.com/testing" target="_blank" rel="noopener noreferrer">Documentazione ufficiale Stripe ↗</a>
+    </footer>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <dialog id="installDialog" class="install-dialog">
+    <div class="dialog-top"><span class="eyebrow">INSTALLAZIONE IPHONE</span><button id="closeDialog" class="close-button" aria-label="Chiudi">×</button></div>
+    <h3>Aggiungi alla schermata Home</h3>
+    <ol>
+      <li>Apri questo sito con <strong>Safari</strong> su iPhone.</li>
+      <li>Tocca il pulsante <strong>Condividi</strong> (quadrato con freccia).</li>
+      <li>Scorri e scegli <strong>Aggiungi alla schermata Home</strong>.</li>
+      <li>Tocca <strong>Aggiungi</strong>.</li>
+    </ol>
+    <p class="muted small">Per l'installazione PWA il sito deve essere pubblicato tramite HTTPS. L'anteprima locale dei file non basta.</p>
+    <button id="okDialog" class="button primary full">Ho capito</button>
+  </dialog>
+
+  <script src="app.js" defer></script>
+</body>
+</html>

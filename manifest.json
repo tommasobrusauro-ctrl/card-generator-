@@ -1,0 +1,17 @@
+{
+  "id": "./",
+  "name": "CardGenerator Pro — Stripe Test Fixtures",
+  "short_name": "CardGenerator",
+  "description": "Archivio offline di fixture pubbliche Stripe per test. Non genera carte reali.",
+  "lang": "it",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#08090d",
+  "theme_color": "#08090d",
+  "icons": [
+    {"src":"icons/icon-192.png","sizes":"192x192","type":"image/png","purpose":"any"},
+    {"src":"icons/icon-512.png","sizes":"512x512","type":"image/png","purpose":"any"}
+  ]
+}
